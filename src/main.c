@@ -6,7 +6,7 @@
 /*   By: prichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/31 15:39:03 by prichard          #+#    #+#             */
-/*   Updated: 2016/02/16 11:47:15 by prichard         ###   ########.fr       */
+/*   Updated: 2016/02/23 17:49:31 by prichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include "fdf.h"
 
-int		close_win(int keycode, void *param)
+int		ft_close_win(int keycode, void *param)
 {
 	param = NULL;
 	if (keycode == ESC_KEY)
@@ -25,25 +25,24 @@ int		close_win(int keycode, void *param)
 
 int	main(void)
 {
-	void	*mlx;
-	void	*win;
+	t_env	env;
 	int		x;
 	int		y;
 
-	mlx = mlx_init();
-	win = mlx_new_window(mlx, 400, 400, "mlx 42");
-	y = 50;
-	while (y < 250)
+	env.mlx = mlx_init();
+	env.win = mlx_new_window(env.mlx, 1000, 1000, "test boyz");
+	y = 10;
+	while (y < 390)
 	{
-		x = 50;
-		while (x < 350)
+		x = 10;
+		while (x < 390)
 		{
-			mlx_pixel_put(mlx, win, x, y, 0xFF00FF);
+			mlx_pixel_put(env.mlx, env.win, x, y, 0x00FFFF);
 			x++;
 		}
 		y++;
 	}
-	mlx_key_hook(win, close_win, 0);
-	mlx_loop(mlx);
+	mlx_key_hook(env.win, ft_close_win, 0);
+	mlx_loop(env.mlx);
 	return (0);
 }

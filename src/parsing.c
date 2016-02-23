@@ -6,7 +6,7 @@
 /*   By: prichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 16:05:13 by prichard          #+#    #+#             */
-/*   Updated: 2016/02/16 18:20:29 by prichard         ###   ########.fr       */
+/*   Updated: 2016/02/23 15:35:59 by prichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,57 +16,63 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int		count_col(int fd, char *line)
+int		count_col(char *filename)
 {
-	t_coord	index;
-	char	**tab;
-
-	index.i = 0;
-	get_next_line(fd, &line)
-	tab = ft_strsplit(line, ' ');
-	while (tab[index.i])
-		index.i++;
-	return(index.i);
-}
-
-int		count_line(char **tab)
-{
-	int		i;
-	int		j;
-
-	j = 0;
-	i = 0;
-	while (tab[i][j])
-	{
-		while (tab[i][j])
-			i++;
-		j++;
-	}
-	return (j);
-}
-
-char	**ft_read(char *filename)
-{
+	t_index	index;
 	int		fd;
 	char	*line;
 	char	**tab;
-	int		i;
-	int		j;
 
-	j = 0;
+	index.i = 0;
 	fd = open(filename, O_RDONLY);
-	while (get_next_line(fd, &line) == 1)
+	get_next_line(fd, &line);
+	tab = ft_strsplit(line, ' ');
+	while (tab[index.i])
+		index.i++;
+	close(fd);
+	return(index.i);
+}
+
+int		count_lines(char *filename)
+{
+	t_index	index;
+	int		fd;
+	char	*line;
+
+	index.i = 0;
+	fd = open(filename, O_RDONLY);
+	while (get_next_line(fd, &line) > 0)
+		index.i++;
+	close(fd);
+	return (index.i++);
+}
+
+t_map	ft_read(char *filename)
+{
+	int			fd;
+	char		*line;
+	char		**tab;
+	t_map		grid;
+	t_index		index;
+
+	index.i = 0;
+	grid.height = count_lines(filename);
+	grid.width = count_col(filename);
+	grid.map = (int **)ft_memalloc(sizeof(int *) * count_lines(filename));
+	fd = open(filename, O_RDONLY);
+	while (get_next_line(fd, &line) > 0)
 	{
-		ft_putnbr(count_col(line, ' '));
+		grid.map[index.i] = (int *)ft_memalloc(sizeof(int) * count_col(filename));
 		tab = ft_strsplit(line, ' ');
-		i = -1;
-		while (++i < count_col(line, ' '))
+		index.j = 0;
+		while (tab[index.j])
 		{
-			tab[i][j] = ft_atoi(tab[i]);
+			grid.map[index.i][index.j] = ft_atoi(tab[index.i]);
+			index.j++;
 		}
-		j++;
+		index.i++;
 	}
-	return (tab);
+	return (grid.map);
 }
 
 int		main(int ac, char **av)

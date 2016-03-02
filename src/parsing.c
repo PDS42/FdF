@@ -6,7 +6,7 @@
 /*   By: prichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 16:05:13 by prichard          #+#    #+#             */
-/*   Updated: 2016/02/23 15:35:59 by prichard         ###   ########.fr       */
+/*   Updated: 2016/03/02 15:11:48 by prichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,24 +55,27 @@ t_map	ft_read(char *filename)
 	t_map		grid;
 	t_index		index;
 
-	index.i = 0;
+	index.j = 0;
 	grid.height = count_lines(filename);
 	grid.width = count_col(filename);
 	grid.map = (int **)ft_memalloc(sizeof(int *) * count_lines(filename));
 	fd = open(filename, O_RDONLY);
 	while (get_next_line(fd, &line) > 0)
 	{
-		grid.map[index.i] = (int *)ft_memalloc(sizeof(int) * count_col(filename));
+		grid.map[index.j] = (int *)ft_memalloc(sizeof(int) * count_col(filename));
 		tab = ft_strsplit(line, ' ');
-		index.j = 0;
-		while (tab[index.j])
+		index.i = 0;
+		while (tab[index.i])
 		{
-			grid.map[index.i][index.j] = ft_atoi(tab[index.i]);
-			index.j++;
+			grid.map[index.j][index.i] = ft_atoi(tab[index.i]);
+			ft_putnbr(grid.map[index.j][index.i]);
+			ft_putchar(' ');
+			index.i++;
 		}
-		index.i++;
+		ft_putchar('\n');
+		index.j++;
 	}
-	return (grid.map);
+	return (grid);
 }
 
 int		main(int ac, char **av)

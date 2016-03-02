@@ -6,7 +6,7 @@
 /*   By: prichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 16:05:13 by prichard          #+#    #+#             */
-/*   Updated: 2016/03/02 15:11:48 by prichard         ###   ########.fr       */
+/*   Updated: 2016/03/02 17:15:30 by prichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,17 +62,15 @@ t_map	ft_read(char *filename)
 	fd = open(filename, O_RDONLY);
 	while (get_next_line(fd, &line) > 0)
 	{
+		ft_putendl(line);
 		grid.map[index.j] = (int *)ft_memalloc(sizeof(int) * count_col(filename));
 		tab = ft_strsplit(line, ' ');
 		index.i = 0;
 		while (tab[index.i])
 		{
 			grid.map[index.j][index.i] = ft_atoi(tab[index.i]);
-			ft_putnbr(grid.map[index.j][index.i]);
-			ft_putchar(' ');
 			index.i++;
 		}
-		ft_putchar('\n');
 		index.j++;
 	}
 	return (grid);

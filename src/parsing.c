@@ -44,7 +44,7 @@ int		count_lines(char *filename)
 	while (get_next_line(fd, &line) > 0)
 		index.i++;
 	close(fd);
-	return (index.i++);
+	return (index.i);
 }
 
 t_map	ft_read(char *filename)

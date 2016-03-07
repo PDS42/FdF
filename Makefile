@@ -13,7 +13,7 @@
 NAME = fdf
 
 SRC_PATH = ./src/
-SRC_NAME =	parsing.c
+SRC_NAME =	parse.c
 
 OBJ_PATH = ./obj/
 OBJ_NAME = $(SRC_NAME:.c=.o)
@@ -25,7 +25,7 @@ LIB_NAME = -lft
 
 CC = gcc
 FLAGS = -Wall -Werror -Wextra 
-MINILIBIX = -L/usr/local/lib/ -I/usr/local/include -lmlx -framework OpenGL -framework AppKit
+#MINILIBIX = -L/usr/local/lib/ -I/usr/local/include -lmlx -framework OpenGL -framework AppKit
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))

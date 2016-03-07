@@ -14,7 +14,7 @@
 # define FDF_H
 # define ESC_KEY 53
 # include "libft.h"
-# include "mlx.h"
+//# include "mlx.h"
 
 typedef struct	s_env
 {
@@ -33,6 +33,7 @@ typedef struct s_index
 	int		i;
 	int		j;
 	int		k;
+	int		l;
 }				t_index;
 
 typedef struct s_map

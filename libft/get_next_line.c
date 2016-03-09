@@ -6,11 +6,12 @@
 /*   By: prichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 16:11:48 by prichard          #+#    #+#             */
-/*   Updated: 2016/02/16 13:51:28 by prichard         ###   ########.fr       */
+/*   Updated: 2016/03/09 18:27:49 by prichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <fcntl.h>
 
 static int		check_and_stock(char **line, char *begin)
 {
@@ -59,3 +60,17 @@ int				get_next_line(int fd, char **line)
 	}
 	return (check_and_stock(line, begin));
 }
+
+/*int	main(int ac, char **av)*/
+/*{*/
+	/*int		fd;*/
+	/*char	*line;*/
+
+	/*fd = open(av[1], O_RDONLY);*/
+	/*if (ac == 2)*/
+	/*{*/
+		/*while (get_next_line(fd, &line) > 0)*/
+			/*ft_putendl(line);*/
+	/*}*/
+	/*return (0);*/
+/*}*/

@@ -6,7 +6,7 @@
 /*   By: prichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/31 16:10:23 by prichard          #+#    #+#             */
-/*   Updated: 2016/03/02 17:14:48 by prichard         ###   ########.fr       */
+/*   Updated: 2016/03/09 18:30:58 by prichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_index
 	int		i;
 	int		j;
 	int		k;
+	int		l;
 }				t_index;
 
 typedef struct s_map
@@ -40,6 +41,7 @@ typedef struct s_map
 	int		height;
 	int		width;
 	int		**map;
+	t_index	**kek;
 }				t_map;
 
 #endif

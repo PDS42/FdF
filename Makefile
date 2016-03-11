@@ -6,14 +6,15 @@
 #    By: prichard <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/02 13:49:24 by prichard          #+#    #+#              #
-#    Updated: 2016/03/09 18:20:09 by prichard         ###   ########.fr        #
+#    Updated: 2016/03/11 15:50:57 by prichard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fdf
 
 SRC_PATH = ./src/
-SRC_NAME =	parsing.c
+SRC_NAME =	draw.c\
+			parsing.c\
 
 OBJ_PATH = ./obj/
 OBJ_NAME = $(SRC_NAME:.c=.o)

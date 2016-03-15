@@ -6,7 +6,7 @@
 /*   By: prichard <prichard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 15:50:15 by prichard          #+#    #+#             */
-/*   Updated: 2016/02/16 13:52:37 by prichard         ###   ########.fr       */
+/*   Updated: 2016/03/12 13:35:13 by prichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,7 @@ int					ft_countword(char const *str, char c);
 int					ft_islower(int c);
 int					ft_isupper(int c);
 int					get_next_line(int fd, char **line);
+void				ft_swap(int *a, int *b);
+int					ft_abs(int n);
 
 #endif

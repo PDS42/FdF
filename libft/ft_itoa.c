@@ -6,7 +6,7 @@
 /*   By: prichard <prichard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 11:09:02 by prichard          #+#    #+#             */
-/*   Updated: 2015/12/04 15:13:01 by prichard         ###   ########.fr       */
+/*   Updated: 2016/03/12 13:34:43 by prichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int		ft_nbrsign(int nb)
 		return (0);
 }
 
-static int		ft_abs(int nb)
+int		ft_abs(int nb)
 {
 	if (nb < 0)
 	{

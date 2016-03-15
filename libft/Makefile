@@ -6,7 +6,7 @@
 #    By: prichard <prichard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 15:14:48 by prichard          #+#    #+#              #
-#    Updated: 2016/02/16 14:07:03 by prichard         ###   ########.fr        #
+#    Updated: 2016/03/12 13:35:30 by prichard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,6 +80,7 @@ ft_countword.c \
 ft_islower.c \
 ft_isupper.c \
 get_next_line.c\
+ft_swap.c\
 
 OBJ = $(SRC:.c=.o)
 

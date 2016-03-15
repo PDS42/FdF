@@ -1,48 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: prichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/31 15:39:03 by prichard          #+#    #+#             */
-/*   Updated: 2016/03/11 14:17:30 by prichard         ###   ########.fr       */
+/*   Created: 2016/03/14 17:47:59 by prichard          #+#    #+#             */
+/*   Updated: 2016/03/15 13:49:53 by prichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mlx.h>
-#include <stdlib.h>
 #include "fdf.h"
 
-int		ft_close_win(int keycode, void *param)
+static int		ft_close_win(int keycode, void *param)
 {
 	param = NULL;
-	if (keycode == ESC_KEY)
-		exit(-1);
+
+	if (keycode == 53)
+		exit (-1);
 	else
 		return (0);
 }
 
-int	main(void)
+static t_mlx	mlx_start(int height, int width, char *filename)
 {
-	t_env	env;
-	int		x;
-	int		y;
+	t_mlx	env;
 
-	env.mlx = mlx_init();
-	env.win = mlx_new_window(env.mlx, 1000, 1000, "test boyz");
-	y = 10;
-	while (y < 390)
+	env.ptr = mlx_init();
+	env.win = mlx_new_window(env.ptr, height, width, name);
+	env.win_height = height;
+	env.win_width = width;
+	return (env);
+}
+
+int		main(int ac, char **av)
+{
+	t_mlx	mlx;
+	t_map	map;
+	t_img	img;
+
+	if (ac == 2)
 	{
-		x = 10;
-		while (x < 390)
-		{
-			mlx_pixel_put(env.mlx, env.win, x, y, 0x00FFFF);
-			x++;
-		}
-		y++;
+		map = ft_read(av[1]);
+		mlx = mlx_start(1000, 1000, av[1]);
+		iso_view(map);
+		img = final_draw(mlx, map);
+		mlx_put_image_to_window(mlx.mlx_ptr, mlx.win, img.img_ptr, 0, 0);
+		mlx_key_hook(mlx.win, ft_close_win);
+		mlx_loop(img.img_ptr);
 	}
-	mlx_key_hook(env.win, ft_close_win, 0);
-	mlx_loop(env.mlx);
 	return (0);
 }

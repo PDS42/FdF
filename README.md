@@ -4,7 +4,7 @@ This software create a isometric view of a map file. It is launched like this :
 
 ./fdf <file>
 
-Example of a map file : (you can check them out in the "Maps" folder)
+Example of a map file (more in Maps/ folder) :
 ``
 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0

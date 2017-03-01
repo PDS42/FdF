@@ -1,6 +1,6 @@
 First graphic project @42. Keeping things simple, the goal was to get used to working with an unknown graphic library. (used: "Minilibx", built by Olivier Crouzet, head of 42's educational team).
 
-This software create a isometric view of a map file. It is launched like this :
+This software creates a isometric view of a map file. It is launched like this :
 
 ./fdf <file>
 
